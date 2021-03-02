@@ -1,0 +1,588 @@
+  [1m[35m (336.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rest_api_guide_test"[0m
+  [1m[35m (716.0ms)[0m  [1m[35mCREATE DATABASE "rest_api_guide_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles" CASCADE[0m
+  [1m[35m (163.4ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "age" integer, "email" character varying, "date_of_birth" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (146.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210226074345)[0m
+  [1m[35m (174.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-02-26 08:21:40.434245"], ["updated_at", "2021-02-26 08:21:40.434245"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "e91435e9f2c83b0068cb0bb9148e0915e1efdac3"], ["created_at", "2021-02-26 08:21:40.452151"], ["updated_at", "2021-02-26 08:21:40.452151"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 13:59:01 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 775ms (Views: 0.1ms | ActiveRecord: 4.9ms | Allocations: 609350)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 13:59:02 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2046)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 13:59:20 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 117ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212899)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 13:59:49 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 115ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212904)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 13:59:49 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2046)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:02:23 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 120ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 212872)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:02:23 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:02:45 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 116ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212871)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:02:45 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:03:00 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 116ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212871)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:03:00 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:04:25 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 114ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 212871)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:04:25 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2081)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:04:57 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 115ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 212881)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:04:57 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2081)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:05:33 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 116ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212871)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:05:33 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:06:45 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 117ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212871)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:06:45 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:07:03 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 116ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 212881)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:07:03 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2032)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:08:15 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 117ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 212870)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:08:15 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2081)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:09:25 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 120ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 212880)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:09:25 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2081)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:10:00 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 117ms (Views: 0.1ms | ActiveRecord: 3.0ms | Allocations: 212880)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:10:01 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2081)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:13:30 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 117ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 212870)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:13:30 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2081)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:14:46 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 114ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 211934)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:14:46 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1261)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:15:37 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 114ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 211934)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 14:15:37 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1261)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 15:39:53 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 118ms (Views: 0.1ms | ActiveRecord: 2.5ms | Allocations: 211944)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 15:39:53 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1261)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/profiles" for 127.0.0.1 at 2021-02-26 15:39:53 +0530
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 288)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 15:40:21 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 118ms (Views: 0.1ms | ActiveRecord: 3.0ms | Allocations: 211944)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 15:40:21 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1261)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/profiles" for 127.0.0.1 at 2021-02-26 15:40:21 +0530
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 288)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-02-26 15:40:35 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 118ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 211944)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started GET "/profiles" for 127.0.0.1 at 2021-02-26 15:40:35 +0530
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 274)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (64.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (50.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Started POST "/profiles" for 127.0.0.1 at 2021-03-02 11:40:31 +0530
+Processing by ProfilesController#create as HTML
+  Parameters: {"{\"email\":\"new@yopmail.com\",\"first_name\":\"test\",\"last_name\":\"test\",\"date_of_birth\":\"20-11-2020\",\"age\":25}"=>nil}
+[31mUnpermitted parameter: :{"email":"new@yopmail.com","first_name":"test","last_name":"test","date_of_birth":"20-11-2020","age":25}[0m
+Completed 422 Unprocessable Entity in 2218ms (Views: 0.4ms | ActiveRecord: 30.7ms | Allocations: 211944)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+Started GET "/profiles" for 127.0.0.1 at 2021-03-02 11:40:33 +0530
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (30.9ms)[0m  [1m[34mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 33ms (Views: 1.5ms | ActiveRecord: 30.9ms | Allocations: 274)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (10.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (430.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "rest_api_guide_test"[0m
+  [1m[35m (1166.1ms)[0m  [1m[35mCREATE DATABASE "rest_api_guide_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "daily_trips" CASCADE[0m
+  [1m[35m (162.6ms)[0m  [1m[35mCREATE TABLE "daily_trips" ("id" bigserial primary key, "row" integer, "column" integer, "seat_number" integer, "name" character varying, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "profiles" CASCADE[0m
+  [1m[35m (139.2ms)[0m  [1m[35mCREATE TABLE "profiles" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "age" integer, "email" character varying, "date_of_birth" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (165.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210302085800)[0m
+  [1m[35m (7.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210226074345);
+
+[0m
+  [1m[35m (139.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2021-03-02 12:24:05.235965"], ["updated_at", "2021-03-02 12:24:05.235965"]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "e854cc9e865bd1a78074bd5d9bbfdc491f104423"], ["created_at", "2021-03-02 12:24:05.251195"], ["updated_at", "2021-03-02 12:24:05.251195"]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:54:05 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 11ms (Views: 0.4ms | ActiveRecord: 4.3ms | Allocations: 1186)
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:54:27 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 1167)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:54:27 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 200)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:55:21 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 1167)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:55:21 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 200)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:55:42 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 1167)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:55:42 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 200)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:56:10 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.6ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 1370)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:56:10 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.3ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 319)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:28:14.328006"], ["updated_at", "2021-03-02 12:28:14.328006"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:58:14 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.5ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 406)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.2ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:28:14.345476"], ["updated_at", "2021-03-02 12:28:14.345476"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:58:14 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.3ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 301)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:28:41.963047"], ["updated_at", "2021-03-02 12:28:41.963047"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:58:41 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.4ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+[31mUnpermitted parameter: :{"name":"testuser","date":"2021-03-04"}[0m
+Completed 422 Unprocessable Entity in 2014ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 207485)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.9ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:28:44.008645"], ["updated_at", "2021-03-02 12:28:44.008645"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 17:58:44 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.8ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+[31mUnpermitted parameter: :{"name":"testuser","date":"2021-03-04"}[0m
+Completed 422 Unprocessable Entity in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1473)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:30:59.409304"], ["updated_at", "2021-03-02 12:30:59.409304"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 18:00:59 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.5ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+[31mUnpermitted parameter: :{"name":"testuser","date":"2021-03-04"}[0m
+Completed 422 Unprocessable Entity in 112ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 207485)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:30:59.538478"], ["updated_at", "2021-03-02 12:30:59.538478"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 18:00:59 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.3ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+[31mUnpermitted parameter: :{"name":"","date":"2021-03-04"}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1473)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.2ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:30:59.546639"], ["updated_at", "2021-03-02 12:30:59.546639"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 18:00:59 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.3ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+[31mUnpermitted parameter: :{"name":"","date":"2021-03-04"}[0m
+Completed 422 Unprocessable Entity in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 1428)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDailyTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "daily_trips" ("row", "column", "seat_number", "name", "date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["row", 1], ["column", 1], ["seat_number", 1], ["name", "test user"], ["date", "2021-03-04 00:00:00"], ["created_at", "2021-03-02 12:31:27.393321"], ["updated_at", "2021-03-02 12:31:27.393321"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/daily_trips" for 127.0.0.1 at 2021-03-02 18:01:27 +0530
+Processing by DailyTripsController#create as HTML
+  Parameters: {"{\"name\":\"testuser\",\"date\":\"2021-03-04\"}"=>nil}
+  [1m[36mDailyTrip Load (0.5ms)[0m  [1m[34mSELECT "daily_trips".* FROM "daily_trips" WHERE "daily_trips"."date" IS NULL ORDER BY "daily_trips"."created_at" DESC[0m
+[31mUnpermitted parameter: :{"name":"testuser","date":"2021-03-04"}[0m
+Completed 422 Unprocessable Entity in 114ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 207485)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
